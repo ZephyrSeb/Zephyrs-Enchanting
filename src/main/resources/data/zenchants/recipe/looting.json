@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:diamond_sword",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:looting": 1
+				}
+			}
+		}
+	},
+	"ingredient": "minecraft:amethyst_shard",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/sword"
+}

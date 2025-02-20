@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:diamond_boots",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:feather_falling": 1
+				}
+			}
+		}
+	},
+	"ingredient": "minecraft:phantom_membrane",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/foot_armor"
+}

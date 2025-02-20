@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:fishing_rod",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:luck_of_the_sea": 1
+				}
+			}
+		}
+	},
+	"ingredient": "zenchants:shark_tooth",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/fishing"
+}

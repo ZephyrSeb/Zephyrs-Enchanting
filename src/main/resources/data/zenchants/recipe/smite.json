@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:diamond_sword",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:smite": 1
+				}
+			}
+		}
+	},
+	"ingredient": "zenchants:bone_shard",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/weapon"
+}

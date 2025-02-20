@@ -1,0 +1,9 @@
+{
+	"type": "zenchants:enchanting",
+	"result": {
+		"id": "minecraft:diamond_chestplate"
+	},
+	"ingredient": "minecraft:enchanted_book",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/durability"
+}

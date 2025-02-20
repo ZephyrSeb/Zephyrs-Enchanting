@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:diamond_pickaxe",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:fortune": 1
+				}
+			}
+		}
+	},
+	"ingredient": "minecraft:rabbit_foot",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/mining_loot"
+}

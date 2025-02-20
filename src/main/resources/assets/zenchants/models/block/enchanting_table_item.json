@@ -1,0 +1,82 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "zenchants:block/enchanting_table_side",
+		"1": "zenchants:block/enchanting_table_top",
+		"2": "zenchants:block/book_cover",
+		"3": "zenchants:block/book_page",
+		"4": "block/enchanting_table_bottom",
+		"particle": "block/enchanting_table_bottom"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 12, 16],
+			"faces": {
+				"north": {"uv": [0, 4, 16, 16], "texture": "#0"},
+				"east": {"uv": [0, 4, 16, 16], "texture": "#0"},
+				"south": {"uv": [0, 4, 16, 16], "texture": "#0"},
+				"west": {"uv": [0, 4, 16, 16], "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#4"}
+			}
+		},
+		{
+			"from": [1, 12, 2],
+			"to": [15, 13, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1, 12, 2]},
+			"faces": {
+				"north": {"uv": [1, 1, 15, 2], "texture": "#2"},
+				"east": {"uv": [0, 2, 1, 14], "rotation": 90, "texture": "#2"},
+				"south": {"uv": [1, 14, 15, 15], "texture": "#2"},
+				"west": {"uv": [15, 2, 16, 14], "rotation": 270, "texture": "#2"},
+				"up": {"uv": [1, 2, 15, 14], "texture": "#2"},
+				"down": {"uv": [0, 0, 14, 12], "texture": "#missing"}
+			}
+		},
+		{
+			"from": [2, 13, 3],
+			"to": [14, 14, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [2, 13, 3]},
+			"faces": {
+				"north": {"uv": [2, 2, 14, 3], "texture": "#3"},
+				"east": {"uv": [14, 3, 15, 13], "rotation": 270, "texture": "#3"},
+				"south": {"uv": [2, 13, 14, 14], "texture": "#3"},
+				"west": {"uv": [1, 3, 2, 13], "rotation": 90, "texture": "#3"},
+				"up": {"uv": [2, 3, 14, 13], "texture": "#3"},
+				"down": {"uv": [0, 0, 12, 10], "texture": "#missing"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 45, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 225, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"scale": [0.625, 0.625, 0.625]
+		},
+		"fixed": {
+			"scale": [0.5, 0.5, 0.5]
+		}
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:diamond_chestplate",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:fire_protection": 1
+				}
+			}
+		}
+	},
+	"ingredient": "zenchants:fire_diamond",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/armor"
+}

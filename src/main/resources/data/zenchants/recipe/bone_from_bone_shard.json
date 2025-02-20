@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+      "zenchants:bone_shard",
+      "zenchants:bone_shard"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:bone"
+  }
+}

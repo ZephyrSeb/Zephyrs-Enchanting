@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:crossbow",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:piercing": 1
+				}
+			}
+		}
+	},
+	"ingredient": "minecraft:spectral_arrow",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/crossbow"
+}

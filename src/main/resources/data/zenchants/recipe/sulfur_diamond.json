@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+      "#c:gems/diamond",
+      "minecraft:gunpowder"
+  ],
+  "result": {
+    "count": 1,
+    "id": "zenchants:sulfur_diamond"
+  }
+}

@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:diamond_sword",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:bane_of_arthropods": 1
+				}
+			}
+		}
+	},
+	"ingredient": "minecraft:fermented_spider_eye",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/weapon"
+}

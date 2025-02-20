@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+      "zenchants:blade_fragment",
+      "zenchants:blade_fragment"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:iron_sword"
+  }
+}

@@ -1,0 +1,9 @@
+{
+	"replace": false,
+	"values": [
+		"minecraft:diamond",
+		"zenchants:fire_diamond",
+		"zenchants:sulfur_diamond",
+		"zenchants:earth_diamond"
+	]
+}

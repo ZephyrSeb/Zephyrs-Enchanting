@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:diamond_chestplate",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:mending": 1
+				}
+			}
+		}
+	},
+	"ingredient": "zenchants:shining_star",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/durability"
+}

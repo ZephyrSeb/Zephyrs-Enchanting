@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:diamond_helmet",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:aqua_affinity": 1
+				}
+			}
+		}
+	},
+	"ingredient": "minecraft:prismarine_shard",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/head_armor"
+}

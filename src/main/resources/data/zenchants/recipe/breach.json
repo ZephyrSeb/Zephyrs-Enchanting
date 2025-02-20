@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:mace",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:breach": 1
+				}
+			}
+		}
+	},
+	"ingredient": "minecraft:iron_axe",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/mace"
+}

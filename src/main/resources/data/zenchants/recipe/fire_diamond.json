@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+      "#c:gems/diamond",
+      "minecraft:blaze_powder"
+  ],
+  "result": {
+    "count": 1,
+    "id": "zenchants:fire_diamond"
+  }
+}

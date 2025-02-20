@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:trident",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:impaling": 1
+				}
+			}
+		}
+	},
+	"ingredient": "minecraft:pufferfish",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/trident"
+}

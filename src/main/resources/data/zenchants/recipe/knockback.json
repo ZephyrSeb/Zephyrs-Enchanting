@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:diamond_sword",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:knockback": 1
+				}
+			}
+		}
+	},
+	"ingredient": "minecraft:breeze_rod",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/sword"
+}

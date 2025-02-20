@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:diamond_sword",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:fire_aspect": 1
+				}
+			}
+		}
+	},
+	"ingredient": "minecraft:blaze_rod",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/fire_aspect"
+}

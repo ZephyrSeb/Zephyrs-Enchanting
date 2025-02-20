@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:diamond_boots",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:depth_strider": 1
+				}
+			}
+		}
+	},
+	"ingredient": "minecraft:slime_ball",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/foot_armor"
+}

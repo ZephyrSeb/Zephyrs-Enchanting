@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:bow",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:power": 1
+				}
+			}
+		}
+	},
+	"ingredient": "zenchants:arrow_head",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/bow"
+}

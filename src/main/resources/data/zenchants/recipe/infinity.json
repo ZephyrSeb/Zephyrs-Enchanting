@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:bow",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:infinity": 1
+				}
+			}
+		}
+	},
+	"ingredient": "zenchants:arrowboros",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/bow"
+}

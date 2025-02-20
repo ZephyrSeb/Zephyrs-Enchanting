@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:trident",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:channeling": 1
+				}
+			}
+		}
+	},
+	"ingredient": "minecraft:lightning_rod",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/trident"
+}

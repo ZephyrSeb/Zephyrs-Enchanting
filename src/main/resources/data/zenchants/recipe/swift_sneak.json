@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:diamond_leggings",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:swift_sneak": 1
+				}
+			}
+		}
+	},
+	"ingredient": "minecraft:echo_shard",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/leg_armor"
+}

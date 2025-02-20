@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:diamond_sword",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:sweeping_edge": 1
+				}
+			}
+		}
+	},
+	"ingredient": "zenchants:sweeping_blade",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/sword"
+}

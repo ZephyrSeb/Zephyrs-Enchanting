@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:fishing_rod",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:lure": 1
+				}
+			}
+		}
+	},
+	"ingredient": "minecraft:glow_ink_sac",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/fishing"
+}

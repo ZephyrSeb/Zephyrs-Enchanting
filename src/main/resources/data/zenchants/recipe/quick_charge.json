@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:crossbow",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:quick_charge": 1
+				}
+			}
+		}
+	},
+	"ingredient": "zenchants:polish",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/crossbow"
+}

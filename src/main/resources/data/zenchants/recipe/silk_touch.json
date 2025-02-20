@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:diamond_pickaxe",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:silk_touch": 1
+				}
+			}
+		}
+	},
+	"ingredient": "zenchants:cloth_scrap",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/mining_loot"
+}

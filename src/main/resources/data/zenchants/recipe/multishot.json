@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:crossbow",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:multishot": 1
+				}
+			}
+		}
+	},
+	"ingredient": "zenchants:arrow_wheel",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/crossbow"
+}

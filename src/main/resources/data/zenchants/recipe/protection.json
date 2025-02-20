@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:diamond_chestplate",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:protection": 1
+				}
+			}
+		}
+	},
+	"ingredient": "minecraft:diamond",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/armor"
+}

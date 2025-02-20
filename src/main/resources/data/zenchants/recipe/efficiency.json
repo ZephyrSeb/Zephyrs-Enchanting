@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:diamond_pickaxe",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:efficiency": 1
+				}
+			}
+		}
+	},
+	"ingredient": "minecraft:gold_ingot",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/mining"
+}

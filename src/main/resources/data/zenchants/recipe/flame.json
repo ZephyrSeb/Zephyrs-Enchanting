@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:bow",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:flame": 1
+				}
+			}
+		}
+	},
+	"ingredient": "minecraft:blaze_powder",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/bow"
+}

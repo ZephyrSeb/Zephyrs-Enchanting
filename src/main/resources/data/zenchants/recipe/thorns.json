@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:diamond_chestplate",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:thorns": 1
+				}
+			}
+		}
+	},
+	"ingredient": "zenchants:guardian_spike",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/armor"
+}

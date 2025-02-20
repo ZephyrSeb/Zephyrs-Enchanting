@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:diamond_chestplate",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:unbreaking": 1
+				}
+			}
+		}
+	},
+	"ingredient": "zenchants:reinforced_patch",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/durability"
+}

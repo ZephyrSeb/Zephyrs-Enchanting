@@ -1,0 +1,17 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:diamond_sword",
+		"components": {
+			"minecraft:enchantments": {
+				"levels": {
+					"minecraft:sharpness": 1
+				}
+			}
+		}
+	},
+	"ingredient": "zenchants:blade_fragment",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/sharp_weapon"
+}
