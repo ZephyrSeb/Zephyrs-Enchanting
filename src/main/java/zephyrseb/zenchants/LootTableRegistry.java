@@ -16,7 +16,9 @@ import net.minecraft.registry.BuiltinRegistries;
 public class LootTableRegistry {
 
     public static void registerLootTables() {
+        //Adds mod-specific loot to loot tables
         LootTableEvents.MODIFY.register((id, table, setter, registries) -> {
+            //Adds loot to structure chests
             if (LootTables.SIMPLE_DUNGEON_CHEST == id) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
@@ -83,6 +85,7 @@ public class LootTableRegistry {
                 table.modifyPools(builder -> builder
                         .with(AlternativeEntry.builder(ItemEntry.builder(registry.SHARK_TOOTH).weight(1))));
             }
+            //Adds loot to appear in trial chambers
             if (LootTables.TRIAL_CHAMBERS_CORRIDOR_POT == id) {
                 table.modifyPools(builder -> builder
                         .with(AlternativeEntry.builder(ItemEntry.builder(Items.LAPIS_LAZULI).weight(50).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2,6))))));
@@ -110,6 +113,7 @@ public class LootTableRegistry {
                 table.modifyPools(builder -> builder
                         .with(AlternativeEntry.builder(ItemEntry.builder(registry.SHINING_STAR).weight(2).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2,4))))));
             }
+            //Adds loot to be dropped by certain types of mob
             if (id.toString().contains("zombie") || id.toString().contains("husk")) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))

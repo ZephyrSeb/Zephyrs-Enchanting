@@ -90,7 +90,7 @@ public class ZenchantingTableBlock extends BlockWithEntity {
     @Override
     protected NamedScreenHandlerFactory createScreenHandlerFactory(BlockState state, World world, BlockPos pos) {
         return new SimpleNamedScreenHandlerFactory(
-                (syncId, inventory, player) -> new ZenchantingScreenHandler(syncId, inventory, ScreenHandlerContext.create(world, pos), world), SCREEN_TITLE
+                (syncId, inventory, player) -> new ZenchantingScreenHandler(syncId, inventory, ScreenHandlerContext.create(world, pos)), SCREEN_TITLE
         );
     }
 

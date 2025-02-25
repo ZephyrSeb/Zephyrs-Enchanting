@@ -21,5 +21,8 @@
 	"container.zenchants.tooltip_level": "Enchantment has reached maximum level",
 	"container.zenchants.tooltip_exclusive": "Enchantments are mutually exclusive",
 	"container.zenchants.tooltip_xp": "Not enough experience",
-	"container.zenchants.enchant": "Enchant Gear"
+	"container.zenchants.enchant": "Enchant Gear",
+	"tag.item.zenchants.zenchanting_conduits": "Enchanting Conduits",
+	"tag.item.zenchants.zenchanting_enchantable": "Enchantable Items",
+	"tag.item.zenchants.zenchanting_ingredients": "Enchanting Ingredients"
 }

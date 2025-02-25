@@ -60,6 +60,7 @@ public class ZenchantingScreen extends ForgingScreen<ZenchantingScreenHandler> {
         this.renderSlotTooltip(context, mouseX, mouseY);
     }
 
+    //Draws a GUI, including slot icons to show what goes into which slot
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
         super.drawBackground(context, delta, mouseX, mouseY);
@@ -68,6 +69,7 @@ public class ZenchantingScreen extends ForgingScreen<ZenchantingScreenHandler> {
         this.lapisSlotIcon.render(this.handler, context, delta, this.x, this.y);
     }
 
+    //Adds an arrow when an incorrect recipe is loaded into the table
     @Override
     protected void drawInvalidRecipeArrow(DrawContext context, int x, int y) {
         if (this.hasInvalidRecipe()) {
@@ -75,6 +77,7 @@ public class ZenchantingScreen extends ForgingScreen<ZenchantingScreenHandler> {
         }
     }
 
+    //Tooltip that appears when you hover over the invalid recipe arrow
     private void renderSlotTooltip(DrawContext context, int mouseX, int mouseY) {
         Optional<Text> optional = Optional.empty();
         if (this.hasInvalidRecipe() && this.isPointWithinBounds(65 + 24, 46, 28, 21, mouseX, mouseY)) {
@@ -90,6 +93,7 @@ public class ZenchantingScreen extends ForgingScreen<ZenchantingScreenHandler> {
         optional.ifPresent(text -> context.drawOrderedTooltip(this.textRenderer, this.textRenderer.wrapLines(text, 115), mouseX, mouseY));
     }
 
+    //Draws the text displaying how many levels an operation costs
     @Override
     protected void drawForeground(DrawContext context, int mouseX, int mouseY) {
         super.drawForeground(context, mouseX, mouseY);

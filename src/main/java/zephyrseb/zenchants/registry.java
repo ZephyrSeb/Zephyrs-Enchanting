@@ -8,25 +8,19 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.recipe.*;
-import net.minecraft.recipe.display.CuttingRecipeDisplay;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.resource.ResourceFinder;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 
-import java.util.IdentityHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
 public class registry {
 
+    //Item identifiers
     public static final Identifier REINFORCED_PATCH_ID = Identifier.of("zenchants", "reinforced_patch");
     public static final Identifier SHINING_STAR_ID = Identifier.of("zenchants", "shining_star");
     public static final Identifier GUARDIAN_SPIKE_ID = Identifier.of("zenchants", "guardian_spike");
@@ -64,6 +58,7 @@ public class registry {
     public static final RegistryKey<Block> ENCHANTING_TABLE_KEY = RegistryKey.of(RegistryKeys.BLOCK, ENCHANTING_TABLE_ID);
     public static final RegistryKey<Item> ENCHANTING_TABLE_KEY_ITEM = RegistryKey.of(RegistryKeys.ITEM, ENCHANTING_TABLE_ID);
 
+    //Register items
     public static final Item REINFORCED_PATCH = new Item(new Item.Settings().rarity(Rarity.UNCOMMON).registryKey(REINFORCED_PATCH_KEY));
     public static final Item SHINING_STAR = new Item(new Item.Settings().rarity(Rarity.UNCOMMON).registryKey(SHINING_STAR_KEY));
     public static final Item GUARDIAN_SPIKE = new Item(new Item.Settings().registryKey(GUARDIAN_SPIKE_KEY));
@@ -85,6 +80,7 @@ public class registry {
     public static final RegistryKey<RecipePropertySet> ZENCHANTING_ADDITION = RegistryKey.of(RecipePropertySet.REGISTRY, Identifier.of("zenchants", "zenchanting_addition"));
     public static final RegistryKey<RecipePropertySet> ZENCHANTING_ITEM_COST = RegistryKey.of(RecipePropertySet.REGISTRY, Identifier.of("zenchants", "zenchanting_item_cost"));
 
+    //Enchanting table block entity and recipes
     public static final BlockEntityType<ZenchantingTableBlockEntity> ENCHANTING_TABLE_ENTITY = Registry.register(
             Registries.BLOCK_ENTITY_TYPE,
             Identifier.of("zenchants", "enchanting_table_entity"),
@@ -109,7 +105,13 @@ public class registry {
             new EnchantingTransformRecipe.Serializer()
     );
 
+    //Tag registries
+    public static final TagKey<Item> ZENCHANTING_ENCHANTABLE = TagKey.of(RegistryKeys.ITEM, Identifier.of("zenchants", "zenchanting_enchantable"));
+    public static final TagKey<Item> ZENCHANTING_INGREDIENTS = TagKey.of(RegistryKeys.ITEM, Identifier.of("zenchants", "zenchanting_ingredients"));
+    public static final TagKey<Item> ZENCHANTING_CONDUITS = TagKey.of(RegistryKeys.ITEM, Identifier.of("zenchants", "zenchanting_conduits"));
+
     public static void register() {
+        //Initialize item registries
         Registry.register(Registries.ITEM, REINFORCED_PATCH_ID, REINFORCED_PATCH);
         Registry.register(Registries.ITEM, SHINING_STAR_ID, SHINING_STAR);
         Registry.register(Registries.ITEM, GUARDIAN_SPIKE_ID, GUARDIAN_SPIKE);
@@ -127,9 +129,11 @@ public class registry {
         Registry.register(Registries.ITEM, CLOTH_SCRAP_ID, CLOTH_SCRAP);
         Registry.register(Registries.ITEM, POLISH_ID, POLISH);
 
+        //Register enchanting table block
         Registry.register(Registries.BLOCK, Identifier.of("zenchants","enchanting_table"), ENCHANTING_TABLE);
         Registry.register(Registries.ITEM, Identifier.of("zenchants", "enchanting_table"), new BlockItem(ENCHANTING_TABLE, new Item.Settings().registryKey(ENCHANTING_TABLE_KEY_ITEM)));
 
+        //Add items to creative inventory
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ENCHANTING_TABLE));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(content -> {
             content.add(CLOTH_SCRAP);
