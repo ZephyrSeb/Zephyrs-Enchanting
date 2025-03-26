@@ -76,9 +76,6 @@ public class registry {
     public static final Item CLOTH_SCRAP = new Item(new Item.Settings().rarity(Rarity.UNCOMMON).registryKey(CLOTH_SCRAP_KEY));
     public static final Item POLISH = new Item(new Item.Settings().registryKey(POLISH_KEY));
     public static final Block ENCHANTING_TABLE = new ZenchantingTableBlock(Block.Settings.create().strength(4.0f).registryKey(ENCHANTING_TABLE_KEY));
-    public static final RegistryKey<RecipePropertySet> ZENCHANTING_BASE = RegistryKey.of(RecipePropertySet.REGISTRY, Identifier.of("zenchants", "zenchanting_base"));
-    public static final RegistryKey<RecipePropertySet> ZENCHANTING_ADDITION = RegistryKey.of(RecipePropertySet.REGISTRY, Identifier.of("zenchants", "zenchanting_addition"));
-    public static final RegistryKey<RecipePropertySet> ZENCHANTING_ITEM_COST = RegistryKey.of(RecipePropertySet.REGISTRY, Identifier.of("zenchants", "zenchanting_item_cost"));
 
     //Enchanting table block entity and recipes
     public static final BlockEntityType<ZenchantingTableBlockEntity> ENCHANTING_TABLE_ENTITY = Registry.register(
