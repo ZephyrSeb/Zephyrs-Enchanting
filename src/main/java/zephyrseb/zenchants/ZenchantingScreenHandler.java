@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.*;
 import net.minecraft.screen.ForgingScreenHandler;
+import net.minecraft.screen.Property;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.slot.ForgingSlotsManager;
 import net.minecraft.screen.slot.Slot;
@@ -32,7 +33,7 @@ public class ZenchantingScreenHandler extends ForgingScreenHandler {
     @Nullable
     private RecipeEntry<EnchantingRecipe> currentRecipe;
     public int errorCode = 0;
-    public static int levelCost;
+    private final Property levelCost;
 
     public ZenchantingScreenHandler(int syncId, PlayerInventory playerInventory) {
         this(syncId, playerInventory, ScreenHandlerContext.EMPTY);
@@ -41,6 +42,8 @@ public class ZenchantingScreenHandler extends ForgingScreenHandler {
     public ZenchantingScreenHandler(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
         super(registry.ENCHANTING_SCREEN_HANDLER, syncId, playerInventory, context, createForgingSlotsManager());
         this.world = playerInventory.player.getWorld();
+        this.levelCost = Property.create();
+        this.addProperty(this.levelCost);
     }
 
     //Creates slots, using tag lists to determine what can go into the slots
@@ -64,7 +67,7 @@ public class ZenchantingScreenHandler extends ForgingScreenHandler {
     //Runs when the player takes to proposed output, consuming resources and levels
     @Override
     protected void onTakeOutput(PlayerEntity player, ItemStack stack) {
-        stack.onCraftByPlayer(player.getWorld(), player, stack.getCount());
+        stack.onCraftByPlayer(player, stack.getCount());
         this.decrementStack(0);
         this.decrementStack(1);
         this.decrementStack(2);
@@ -135,10 +138,10 @@ public class ZenchantingScreenHandler extends ForgingScreenHandler {
 
             //Determines the experience cost of the enchantment
             if (this.output.getStack(0) != ItemStack.EMPTY) {
-                if (recipeEntry.value().craftCost(zenchantingRecipeInput) > 0) {
-                    setLevelCost(recipeEntry.value().craftCost(zenchantingRecipeInput));
-                }
                 this.context.run((world, pos) -> {
+                    if (recipeEntry.value().craftCost(zenchantingRecipeInput) > 0) {
+                        setLevelCost(recipeEntry.value().craftCost(zenchantingRecipeInput));
+                    }
                     int ix = 0;
                     //Apply bookshelf discount
                     for (BlockPos blockPos : ZenchantingTableBlock.POWER_PROVIDER_OFFSETS) {
@@ -148,6 +151,8 @@ public class ZenchantingScreenHandler extends ForgingScreenHandler {
                     }
                     ix = Math.min(ix, 15);
                     setLevelCost((int) Math.ceil(getLevelCost() * ((61d - (3 * ix)) / 64d)));
+
+                    this.sendContentUpdates();
                 });
             }
         }
@@ -164,9 +169,10 @@ public class ZenchantingScreenHandler extends ForgingScreenHandler {
     }
 
     private OptionalInt getQuickMoveSlot(ItemStack stack) {
-        if (stack.isEnchantable() || stack.hasEnchantments()) return OptionalInt.of(0);
-        if (stack.isOf(Items.LAPIS_LAZULI)) return OptionalInt.of(2);
-        return OptionalInt.of(1);
+        if (stack.isIn(registry.ZENCHANTING_ENCHANTABLE)) return OptionalInt.of(0);
+        else if (stack.isIn(registry.ZENCHANTING_INGREDIENTS)) return OptionalInt.of(1);
+        else if (stack.isIn(registry.ZENCHANTING_CONDUITS)) return OptionalInt.of(2);
+        else return OptionalInt.of(0);
     }
 
     public int getErrorCode() {
@@ -174,11 +180,11 @@ public class ZenchantingScreenHandler extends ForgingScreenHandler {
     }
 
     public int getLevelCost() {
-        return levelCost;
+        return this.levelCost.get();
     }
 
     public void setLevelCost(int i) {
-        levelCost = i;
+        this.levelCost.set(i);
     }
 
     public PlayerEntity getPlayer() {

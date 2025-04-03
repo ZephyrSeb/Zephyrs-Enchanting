@@ -5,9 +5,7 @@
 		"id": "minecraft:diamond_sword",
 		"components": {
 			"minecraft:enchantments": {
-				"levels": {
-					"minecraft:knockback": 1
-				}
+				"minecraft:knockback": 1
 			}
 		}
 	},

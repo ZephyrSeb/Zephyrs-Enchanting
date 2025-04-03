@@ -5,9 +5,7 @@
 		"id": "minecraft:fishing_rod",
 		"components": {
 			"minecraft:enchantments": {
-				"levels": {
-					"minecraft:lure": 1
-				}
+				"minecraft:lure": 1
 			}
 		}
 	},

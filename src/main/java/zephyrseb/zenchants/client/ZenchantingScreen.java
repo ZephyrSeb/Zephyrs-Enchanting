@@ -97,14 +97,14 @@ public class ZenchantingScreen extends ForgingScreen<ZenchantingScreenHandler> {
     @Override
     protected void drawForeground(DrawContext context, int mouseX, int mouseY) {
         super.drawForeground(context, mouseX, mouseY);
-        int i = this.handler.getLevelCost();
-        if (i >= 0) {
+        int levelCost = ((ZenchantingScreenHandler) this.handler).getLevelCost();
+        if (levelCost >= 0) {
             int j = 8453920;
             Text text;
-            if (!this.handler.getSlot(1).hasStack() || !this.handler.getSlot(0).hasStack() || !this.handler.getSlot(2).hasStack() || !this.handler.getSlot(3).hasStack() || this.handler.getLevelCost() == 0) {
+            if (!this.handler.getSlot(3).hasStack()) {
                 text = null;
             } else {
-                text = Text.translatable("container.repair.cost", i);
+                text = Text.translatable("container.repair.cost", levelCost);
                 if (!this.handler.getSlot(2).canTakeItems(this.handler.getPlayer())) {
                     j = 16736352;
                 }

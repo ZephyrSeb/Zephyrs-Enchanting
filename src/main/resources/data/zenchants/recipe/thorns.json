@@ -5,9 +5,7 @@
 		"id": "minecraft:diamond_chestplate",
 		"components": {
 			"minecraft:enchantments": {
-				"levels": {
-					"minecraft:thorns": 1
-				}
+				"minecraft:thorns": 1
 			}
 		}
 	},

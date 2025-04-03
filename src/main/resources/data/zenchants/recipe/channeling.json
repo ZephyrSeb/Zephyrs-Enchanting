@@ -5,9 +5,7 @@
 		"id": "minecraft:trident",
 		"components": {
 			"minecraft:enchantments": {
-				"levels": {
-					"minecraft:channeling": 1
-				}
+				"minecraft:channeling": 1
 			}
 		}
 	},

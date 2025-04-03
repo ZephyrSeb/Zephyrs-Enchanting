@@ -5,9 +5,7 @@
 		"id": "minecraft:diamond_sword",
 		"components": {
 			"minecraft:enchantments": {
-				"levels": {
-					"minecraft:sweeping_edge": 1
-				}
+				"minecraft:sweeping_edge": 1
 			}
 		}
 	},

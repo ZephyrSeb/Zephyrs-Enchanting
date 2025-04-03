@@ -5,9 +5,7 @@
 		"id": "minecraft:diamond_pickaxe",
 		"components": {
 			"minecraft:enchantments": {
-				"levels": {
-					"minecraft:silk_touch": 1
-				}
+				"minecraft:silk_touch": 1
 			}
 		}
 	},

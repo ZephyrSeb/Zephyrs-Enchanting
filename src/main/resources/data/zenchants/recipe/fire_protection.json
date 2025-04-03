@@ -5,9 +5,7 @@
 		"id": "minecraft:diamond_chestplate",
 		"components": {
 			"minecraft:enchantments": {
-				"levels": {
-					"minecraft:fire_protection": 1
-				}
+				"minecraft:fire_protection": 1
 			}
 		}
 	},

@@ -5,9 +5,7 @@
 		"id": "minecraft:trident",
 		"components": {
 			"minecraft:enchantments": {
-				"levels": {
-					"minecraft:riptide": 1
-				}
+				"minecraft:riptide": 1
 			}
 		}
 	},

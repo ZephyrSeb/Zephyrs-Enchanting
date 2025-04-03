@@ -74,7 +74,7 @@ public class ZenchantingTableBlock extends BlockWithEntity {
 
         for (BlockPos blockPos : POWER_PROVIDER_OFFSETS) {
             if (random.nextInt(16) == 0 && canAccessPowerProvider(world, pos, blockPos)) {
-                world.addParticle(
+                world.addParticleClient(
                         ParticleTypes.ENCHANT,
                         (double)pos.getX() + 0.5,
                         (double)pos.getY() + 2.0,

@@ -60,8 +60,8 @@ public class EnchantingTransformRecipe implements EnchantingRecipe {
     //Determines the output of the enchanting table
     public ItemStack craft(EnchantingRecipeInput enchantingRecipeInput, RegistryWrapper.WrapperLookup wrapperLookup) {
         ItemStack itemStack = enchantingRecipeInput.base().copyComponentsToNewStack(enchantingRecipeInput.getStackInSlot(0).getItem(), enchantingRecipeInput.getStackInSlot(0).getCount());
-        //If both the first and second slot contains a book
-        if (enchantingRecipeInput.getStackInSlot(1).contains(DataComponentTypes.STORED_ENCHANTMENTS) && isBook(itemStack)) {
+        //If the second slot contains a book
+        if (enchantingRecipeInput.getStackInSlot(1).contains(DataComponentTypes.STORED_ENCHANTMENTS) && !isBook(itemStack)) {
             ItemEnchantmentsComponent itemEnchantmentsComponent = enchantingRecipeInput.getStackInSlot(1).getComponents().get(DataComponentTypes.STORED_ENCHANTMENTS);
             if (itemEnchantmentsComponent != null) {
                 for (Object2IntMap.Entry<RegistryEntry<Enchantment>> entry : itemEnchantmentsComponent.getEnchantmentEntries()) {

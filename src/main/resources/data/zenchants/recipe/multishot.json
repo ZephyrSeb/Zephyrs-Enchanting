@@ -5,9 +5,7 @@
 		"id": "minecraft:crossbow",
 		"components": {
 			"minecraft:enchantments": {
-				"levels": {
-					"minecraft:multishot": 1
-				}
+				"minecraft:multishot": 1
 			}
 		}
 	},

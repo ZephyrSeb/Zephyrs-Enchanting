@@ -5,9 +5,7 @@
 		"id": "minecraft:diamond_boots",
 		"components": {
 			"minecraft:enchantments": {
-				"levels": {
-					"minecraft:frost_walker": 1
-				}
+				"minecraft:frost_walker": 1
 			}
 		}
 	},

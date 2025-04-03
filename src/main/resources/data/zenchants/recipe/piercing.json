@@ -5,9 +5,7 @@
 		"id": "minecraft:crossbow",
 		"components": {
 			"minecraft:enchantments": {
-				"levels": {
-					"minecraft:piercing": 1
-				}
+				"minecraft:piercing": 1
 			}
 		}
 	},

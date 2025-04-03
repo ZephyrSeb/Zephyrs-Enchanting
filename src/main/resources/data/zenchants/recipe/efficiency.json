@@ -5,9 +5,7 @@
 		"id": "minecraft:diamond_pickaxe",
 		"components": {
 			"minecraft:enchantments": {
-				"levels": {
-					"minecraft:efficiency": 1
-				}
+				"minecraft:efficiency": 1
 			}
 		}
 	},

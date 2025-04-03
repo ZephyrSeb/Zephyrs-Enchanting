@@ -5,9 +5,7 @@
 		"id": "minecraft:diamond_helmet",
 		"components": {
 			"minecraft:enchantments": {
-				"levels": {
-					"minecraft:respiration": 1
-				}
+				"minecraft:respiration": 1
 			}
 		}
 	},

@@ -5,9 +5,7 @@
 		"id": "minecraft:diamond_pickaxe",
 		"components": {
 			"minecraft:enchantments": {
-				"levels": {
-					"minecraft:fortune": 1
-				}
+				"minecraft:fortune": 1
 			}
 		}
 	},

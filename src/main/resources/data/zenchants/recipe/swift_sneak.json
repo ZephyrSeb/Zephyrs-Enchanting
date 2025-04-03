@@ -5,9 +5,7 @@
 		"id": "minecraft:diamond_leggings",
 		"components": {
 			"minecraft:enchantments": {
-				"levels": {
-					"minecraft:swift_sneak": 1
-				}
+				"minecraft:swift_sneak": 1
 			}
 		}
 	},

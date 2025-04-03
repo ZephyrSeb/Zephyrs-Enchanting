@@ -5,9 +5,7 @@
 		"id": "minecraft:diamond_chestplate",
 		"components": {
 			"minecraft:enchantments": {
-				"levels": {
-					"minecraft:unbreaking": 1
-				}
+				"minecraft:unbreaking": 1
 			}
 		}
 	},

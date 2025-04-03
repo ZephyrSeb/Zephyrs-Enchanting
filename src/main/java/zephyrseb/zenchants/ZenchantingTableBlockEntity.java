@@ -3,15 +3,18 @@ package zephyrseb.zenchants;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.component.ComponentMap;
+import net.minecraft.component.ComponentsAccess;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
+import net.minecraft.nbt.NbtOps;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.text.Text;
+import net.minecraft.text.TextCodecs;
 import net.minecraft.util.Nameable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -50,8 +53,8 @@ public class ZenchantingTableBlockEntity extends BlockEntity implements Nameable
     @Override
     protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         super.readNbt(nbt, registryLookup);
-        if (nbt.contains("CustomName", NbtElement.STRING_TYPE)) {
-            this.customName = tryParseCustomName(nbt.getString("CustomName"), registryLookup);
+        if (this.hasCustomName()) {
+            nbt.put("CustomName", TextCodecs.CODEC, registryLookup.getOps(NbtOps.INSTANCE), this.customName);
         }
     }
 
@@ -123,8 +126,7 @@ public class ZenchantingTableBlockEntity extends BlockEntity implements Nameable
         return this.customName;
     }
 
-    @Override
-    protected void readComponents(BlockEntity.ComponentsAccess components) {
+    protected void readComponents(ComponentsAccess components) {
         super.readComponents(components);
         this.customName = components.get(DataComponentTypes.CUSTOM_NAME);
     }

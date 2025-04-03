@@ -5,9 +5,7 @@
 		"id": "minecraft:diamond_sword",
 		"components": {
 			"minecraft:enchantments": {
-				"levels": {
-					"minecraft:smite": 1
-				}
+				"minecraft:smite": 1
 			}
 		}
 	},

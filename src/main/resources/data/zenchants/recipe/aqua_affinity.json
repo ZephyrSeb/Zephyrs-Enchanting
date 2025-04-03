@@ -5,9 +5,7 @@
 		"id": "minecraft:diamond_helmet",
 		"components": {
 			"minecraft:enchantments": {
-				"levels": {
-					"minecraft:aqua_affinity": 1
-				}
+				"minecraft:aqua_affinity": 1
 			}
 		}
 	},

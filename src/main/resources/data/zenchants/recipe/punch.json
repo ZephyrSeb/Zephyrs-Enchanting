@@ -5,9 +5,7 @@
 		"id": "minecraft:bow",
 		"components": {
 			"minecraft:enchantments": {
-				"levels": {
-					"minecraft:punch": 1
-				}
+				"minecraft:punch": 1
 			}
 		}
 	},

@@ -5,9 +5,7 @@
 		"id": "minecraft:diamond_sword",
 		"components": {
 			"minecraft:enchantments": {
-				"levels": {
-					"minecraft:bane_of_arthropods": 1
-				}
+				"minecraft:bane_of_arthropods": 1
 			}
 		}
 	},

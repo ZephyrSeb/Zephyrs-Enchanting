@@ -5,9 +5,7 @@
 		"id": "minecraft:diamond_boots",
 		"components": {
 			"minecraft:enchantments": {
-				"levels": {
-					"minecraft:feather_falling": 1
-				}
+				"minecraft:feather_falling": 1
 			}
 		}
 	},

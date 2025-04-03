@@ -5,9 +5,7 @@
 		"id": "minecraft:mace",
 		"components": {
 			"minecraft:enchantments": {
-				"levels": {
-					"minecraft:density": 1
-				}
+				"minecraft:density": 1
 			}
 		}
 	},

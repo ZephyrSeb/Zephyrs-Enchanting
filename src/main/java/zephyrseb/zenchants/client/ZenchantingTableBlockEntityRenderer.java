@@ -15,6 +15,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RotationAxis;
+import net.minecraft.util.math.Vec3d;
 import zephyrseb.zenchants.ZenchantingTableBlockEntity;
 
 @Environment(EnvType.CLIENT)
@@ -30,7 +31,7 @@ public class ZenchantingTableBlockEntityRenderer implements BlockEntityRenderer<
 
     @Override
     public void render(
-            ZenchantingTableBlockEntity zenchantingTableBlockEntity, float f, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, int j
+            ZenchantingTableBlockEntity zenchantingTableBlockEntity, float f, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, int j, Vec3d vec3d
     ) {
         matrixStack.push();
         matrixStack.translate(0.5F, 0.75F, 0.5F);
