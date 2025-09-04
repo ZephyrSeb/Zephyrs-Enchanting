@@ -1,8 +1,10 @@
 package zephyrseb.zenchants;
 
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
+import net.minecraft.loot.LootTable;
 import net.minecraft.loot.LootTables;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.condition.RandomChanceWithEnchantedBonusLootCondition;
@@ -12,8 +14,17 @@ import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.registry.BuiltinRegistries;
+import net.minecraft.registry.RegistryKey;
 
 public class LootTableRegistry {
+    private static final RegistryKey<LootTable> SKELETON_LOOT_TABLE_ID = EntityType.SKELETON.getLootTableKey().isPresent() ? EntityType.SKELETON.getLootTableKey().get() : null;
+    private static final RegistryKey<LootTable> STRAY_LOOT_TABLE_ID = EntityType.STRAY.getLootTableKey().isPresent() ? EntityType.STRAY.getLootTableKey().get() : null;
+    private static final RegistryKey<LootTable> BOGGED_LOOT_TABLE_ID = EntityType.BOGGED.getLootTableKey().isPresent() ? EntityType.BOGGED.getLootTableKey().get() : null;
+    private static final RegistryKey<LootTable> ZOMBIE_LOOT_TABLE_ID = EntityType.ZOMBIE.getLootTableKey().isPresent() ? EntityType.ZOMBIE.getLootTableKey().get() : null;
+    private static final RegistryKey<LootTable> HUSK_LOOT_TABLE_ID = EntityType.HUSK.getLootTableKey().isPresent() ? EntityType.HUSK.getLootTableKey().get() : null;
+    private static final RegistryKey<LootTable> GUARDIAN_LOOT_TABLE_ID = EntityType.GUARDIAN.getLootTableKey().isPresent() ? EntityType.GUARDIAN.getLootTableKey().get() : null;
+    private static final RegistryKey<LootTable> ELDER_GUARDIAN_LOOT_TABLE_ID = EntityType.ELDER_GUARDIAN.getLootTableKey().isPresent() ? EntityType.ELDER_GUARDIAN.getLootTableKey().get() : null;
+    private static final RegistryKey<LootTable> WITCH_LOOT_TABLE_ID = EntityType.WITCH.getLootTableKey().isPresent() ? EntityType.WITCH.getLootTableKey().get() : null;
 
     public static void registerLootTables() {
         //Adds mod-specific loot to loot tables
@@ -114,31 +125,31 @@ public class LootTableRegistry {
                         .with(AlternativeEntry.builder(ItemEntry.builder(registry.SHINING_STAR).weight(2).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2,4))))));
             }
             //Adds loot to be dropped by certain types of mob
-            if (id.toString().contains("zombie") || id.toString().contains("husk")) {
+            if (id == ZOMBIE_LOOT_TABLE_ID || id == HUSK_LOOT_TABLE_ID) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceWithEnchantedBonusLootCondition.builder(BuiltinRegistries.createWrapperLookup(),0.1f, 0.05f))
+                        .conditionally(RandomChanceWithEnchantedBonusLootCondition.builder(BuiltinRegistries.createWrapperLookup(), 0.1f, 0.05f))
                         .with(ItemEntry.builder(registry.BLADE_FRAGMENT));
                 table.pool(poolBuilder);
             }
-            if (id.toString().contains("skeleton") || id.toString().contains("stray") || id.toString().contains("bogged")) {
+            if (id == SKELETON_LOOT_TABLE_ID || id == STRAY_LOOT_TABLE_ID || id == BOGGED_LOOT_TABLE_ID) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceWithEnchantedBonusLootCondition.builder(BuiltinRegistries.createWrapperLookup(),0.1f, 0.05f))
+                        .conditionally(RandomChanceWithEnchantedBonusLootCondition.builder(BuiltinRegistries.createWrapperLookup(), 0.1f, 0.05f))
                         .with(ItemEntry.builder(registry.BONE_SHARD));
                 table.pool(poolBuilder);
             }
-            if (id.toString().contains("guardian")) {
+            if (id == GUARDIAN_LOOT_TABLE_ID || id == ELDER_GUARDIAN_LOOT_TABLE_ID) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceWithEnchantedBonusLootCondition.builder(BuiltinRegistries.createWrapperLookup(),0.1f, 0.05f))
+                        .conditionally(RandomChanceWithEnchantedBonusLootCondition.builder(BuiltinRegistries.createWrapperLookup(), 0.1f, 0.05f))
                         .with(ItemEntry.builder(registry.GUARDIAN_SPIKE));
                 table.pool(poolBuilder);
             }
-            if (id.toString().contains("witch")) {
+            if (id == WITCH_LOOT_TABLE_ID) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceWithEnchantedBonusLootCondition.builder(BuiltinRegistries.createWrapperLookup(),0.1f, 0.05f))
+                        .conditionally(RandomChanceWithEnchantedBonusLootCondition.builder(BuiltinRegistries.createWrapperLookup(), 0.1f, 0.05f))
                         .with(ItemEntry.builder(registry.POLISH));
                 table.pool(poolBuilder);
             }

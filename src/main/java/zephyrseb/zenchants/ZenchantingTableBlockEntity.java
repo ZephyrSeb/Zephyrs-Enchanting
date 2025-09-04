@@ -7,12 +7,12 @@ import net.minecraft.component.ComponentsAccess;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
-import net.minecraft.nbt.NbtOps;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.storage.ReadView;
+import net.minecraft.storage.WriteView;
 import net.minecraft.text.Text;
 import net.minecraft.text.TextCodecs;
 import net.minecraft.util.Nameable;
@@ -43,19 +43,15 @@ public class ZenchantingTableBlockEntity extends BlockEntity implements Nameable
     }
 
     @Override
-    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-        super.writeNbt(nbt, registryLookup);
-        if (this.hasCustomName()) {
-            nbt.putString("CustomName", Text.Serialization.toJsonString(this.customName, registryLookup));
-        }
+    protected void writeData(WriteView view) {
+        super.writeData(view);
+        view.putNullable("CustomName", TextCodecs.CODEC, this.customName);
     }
 
     @Override
-    protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-        super.readNbt(nbt, registryLookup);
-        if (this.hasCustomName()) {
-            nbt.put("CustomName", TextCodecs.CODEC, registryLookup.getOps(NbtOps.INSTANCE), this.customName);
-        }
+    protected void readData(ReadView view) {
+        super.readData(view);
+        this.customName = tryParseCustomName(view, "CustomName");
     }
 
     public static void tick(World world, BlockPos pos, BlockState ignoredState, ZenchantingTableBlockEntity blockEntity) {

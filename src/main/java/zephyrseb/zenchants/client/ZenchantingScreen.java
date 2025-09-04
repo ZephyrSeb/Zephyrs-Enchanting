@@ -2,10 +2,10 @@ package zephyrseb.zenchants.client;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.gl.RenderPipelines;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.CyclingSlotIcon;
 import net.minecraft.client.gui.screen.ingame.ForgingScreen;
-import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -73,7 +73,7 @@ public class ZenchantingScreen extends ForgingScreen<ZenchantingScreenHandler> {
     @Override
     protected void drawInvalidRecipeArrow(DrawContext context, int x, int y) {
         if (this.hasInvalidRecipe()) {
-            context.drawGuiTexture(RenderLayer::getGuiTextured, ERROR_TEXTURE, x + 65 + 24, y + 46, 28, 21);
+            context.drawGuiTexture(RenderPipelines.GUI_TEXTURED, ERROR_TEXTURE, x + 65 + 24, y + 46, 28, 21);
         }
     }
 
@@ -97,16 +97,17 @@ public class ZenchantingScreen extends ForgingScreen<ZenchantingScreenHandler> {
     @Override
     protected void drawForeground(DrawContext context, int mouseX, int mouseY) {
         super.drawForeground(context, mouseX, mouseY);
-        int levelCost = ((ZenchantingScreenHandler) this.handler).getLevelCost();
+        int levelCost = this.handler.getLevelCost();
         if (levelCost >= 0) {
-            int j = 8453920;
+            int j = -8323296;
             Text text;
             if (!this.handler.getSlot(3).hasStack()) {
                 text = null;
+                j = -40864;
             } else {
                 text = Text.translatable("container.repair.cost", levelCost);
                 if (!this.handler.getSlot(2).canTakeItems(this.handler.getPlayer())) {
-                    j = 16736352;
+                    j = -40864;
                 }
             }
 
