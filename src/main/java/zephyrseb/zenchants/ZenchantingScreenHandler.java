@@ -41,7 +41,7 @@ public class ZenchantingScreenHandler extends ForgingScreenHandler {
 
     public ZenchantingScreenHandler(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
         super(registry.ENCHANTING_SCREEN_HANDLER, syncId, playerInventory, context, createForgingSlotsManager());
-        this.world = playerInventory.player.getWorld();
+        this.world = playerInventory.player.getEntityWorld();
         this.levelCost = Property.create();
         this.addProperty(this.levelCost);
     }

@@ -62,7 +62,7 @@ public class ZenchantingTableBlock extends BlockWithEntity {
 
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        if (!world.isClient) {
+        if (!world.isClient()) {
             player.openHandledScreen(state.createScreenHandlerFactory(world, pos));
         }
         return ActionResult.SUCCESS;
@@ -97,7 +97,7 @@ public class ZenchantingTableBlock extends BlockWithEntity {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return world.isClient ? validateTicker(type, registry.ENCHANTING_TABLE_ENTITY, ZenchantingTableBlockEntity::tick) : null;
+        return world.isClient() ? validateTicker(type, registry.ENCHANTING_TABLE_ENTITY, ZenchantingTableBlockEntity::tick) : null;
     }
 
     @Override

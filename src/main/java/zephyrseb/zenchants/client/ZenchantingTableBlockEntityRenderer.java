@@ -2,61 +2,76 @@ package zephyrseb.zenchants.client;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
+import net.minecraft.client.render.block.entity.state.EnchantingTableBlockEntityRenderState;
+import net.minecraft.client.render.command.ModelCommandRenderer;
+import net.minecraft.client.render.command.OrderedRenderCommandQueue;
 import net.minecraft.client.render.entity.model.BookModel;
 import net.minecraft.client.render.entity.model.EntityModelLayers;
-import net.minecraft.client.texture.SpriteAtlasTexture;
+import net.minecraft.client.render.state.CameraRenderState;
+import net.minecraft.client.texture.SpriteHolder;
 import net.minecraft.client.util.SpriteIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RotationAxis;
 import net.minecraft.util.math.Vec3d;
+import org.jetbrains.annotations.Nullable;
 import zephyrseb.zenchants.ZenchantingTableBlockEntity;
 
 @Environment(EnvType.CLIENT)
-public class ZenchantingTableBlockEntityRenderer implements BlockEntityRenderer<ZenchantingTableBlockEntity> {
-    public static final SpriteIdentifier BOOK_TEXTURE = new SpriteIdentifier(
-            SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, Identifier.ofVanilla("entity/enchanting_table_book")
-    );
+public class ZenchantingTableBlockEntityRenderer implements BlockEntityRenderer<ZenchantingTableBlockEntity, EnchantingTableBlockEntityRenderState> {
+    public static final SpriteIdentifier BOOK_TEXTURE;
+    private final SpriteHolder spriteHolder;
     private final BookModel book;
 
     public ZenchantingTableBlockEntityRenderer(BlockEntityRendererFactory.Context ctx) {
+        this.spriteHolder = ctx.spriteHolder();
         this.book = new BookModel(ctx.getLayerModelPart(EntityModelLayers.BOOK));
     }
 
     @Override
-    public void render(
-            ZenchantingTableBlockEntity zenchantingTableBlockEntity, float f, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, int j, Vec3d vec3d
-    ) {
+    public EnchantingTableBlockEntityRenderState createRenderState() {
+        return new EnchantingTableBlockEntityRenderState();
+    }
+
+    @Override
+    public void render(EnchantingTableBlockEntityRenderState state, MatrixStack matrixStack, OrderedRenderCommandQueue queue, CameraRenderState cameraRenderState) {
         matrixStack.push();
         matrixStack.translate(0.5F, 0.75F, 0.5F);
-        float g = (float)zenchantingTableBlockEntity.ticks + f;
-        matrixStack.translate(0.0F, 0.1F + MathHelper.sin(g * 0.1F) * 0.01F, 0.0F);
-        float h = zenchantingTableBlockEntity.bookRotation - zenchantingTableBlockEntity.lastBookRotation;
-
-        while (h >= (float) Math.PI) {
-            h -= (float) (Math.PI * 2);
-        }
-
-        while (h < (float) -Math.PI) {
-            h += (float) (Math.PI * 2);
-        }
-
-        float k = zenchantingTableBlockEntity.lastBookRotation + h * f;
-        matrixStack.multiply(RotationAxis.POSITIVE_Y.rotation(-k));
+        matrixStack.translate(0.0F, 0.1F + MathHelper.sin(state.ticks * 0.1F) * 0.01F, 0.0F);
+        float f = state.bookRotationDegrees;
+        matrixStack.multiply(RotationAxis.POSITIVE_Y.rotation(-f));
         matrixStack.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(80.0F));
-        float l = MathHelper.lerp(f, zenchantingTableBlockEntity.pageAngle, zenchantingTableBlockEntity.nextPageAngle);
-        float m = MathHelper.fractionalPart(l + 0.25F) * 1.6F - 0.3F;
-        float n = MathHelper.fractionalPart(l + 0.75F) * 1.6F - 0.3F;
-        float o = MathHelper.lerp(f, zenchantingTableBlockEntity.pageTurningSpeed, zenchantingTableBlockEntity.nextPageTurningSpeed);
-        this.book.setPageAngles(g, MathHelper.clamp(m, 0.0F, 1.0F), MathHelper.clamp(n, 0.0F, 1.0F), o);
-        VertexConsumer vertexConsumer = BOOK_TEXTURE.getVertexConsumer(vertexConsumerProvider, RenderLayer::getEntitySolid);
-        this.book.render(matrixStack, vertexConsumer, i, j);
+        float g = MathHelper.fractionalPart(state.pageAngle + 0.25F) * 1.6F - 0.3F;
+        float h = MathHelper.fractionalPart(state.pageAngle + 0.75F) * 1.6F - 0.3F;
+        BookModel.BookModelState bookModelState = new BookModel.BookModelState(state.ticks, MathHelper.clamp(g, 0.0F, 1.0F), MathHelper.clamp(h, 0.0F, 1.0F), state.pageTurningSpeed);
+        queue.submitModel(this.book, bookModelState, matrixStack, BOOK_TEXTURE.getRenderLayer(RenderLayer::getEntitySolid), state.lightmapCoordinates, OverlayTexture.DEFAULT_UV, -1, this.spriteHolder.getSprite(BOOK_TEXTURE), 0, state.crumblingOverlay);
         matrixStack.pop();
+    }
+
+    public void updateRenderState(ZenchantingTableBlockEntity enchantingTableBlockEntity, EnchantingTableBlockEntityRenderState enchantingTableBlockEntityRenderState, float f, Vec3d vec3d, @Nullable ModelCommandRenderer.CrumblingOverlayCommand crumblingOverlayCommand) {
+        BlockEntityRenderer.super.updateRenderState(enchantingTableBlockEntity, enchantingTableBlockEntityRenderState, f, vec3d, crumblingOverlayCommand);
+        enchantingTableBlockEntityRenderState.pageAngle = MathHelper.lerp(f, enchantingTableBlockEntity.pageAngle, enchantingTableBlockEntity.nextPageAngle);
+        enchantingTableBlockEntityRenderState.pageTurningSpeed = MathHelper.lerp(f, enchantingTableBlockEntity.pageTurningSpeed, enchantingTableBlockEntity.nextPageTurningSpeed);
+        enchantingTableBlockEntityRenderState.ticks = (float)enchantingTableBlockEntity.ticks + f;
+
+        float g = enchantingTableBlockEntity.bookRotation - enchantingTableBlockEntity.lastBookRotation;
+        while (g >= (float)Math.PI) {
+            g -= ((float) Math.PI * 2F);
+        }
+
+        while(g < -(float)Math.PI) {
+            g += ((float)Math.PI * 2F);
+        }
+
+        enchantingTableBlockEntityRenderState.bookRotationDegrees = enchantingTableBlockEntity.lastBookRotation + g * f;
+    }
+
+    static {
+        BOOK_TEXTURE = TexturedRenderLayers.ENTITY_SPRITE_MAPPER.mapVanilla("enchanting_table_book");
     }
 }
