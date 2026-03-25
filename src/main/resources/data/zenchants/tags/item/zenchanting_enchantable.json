@@ -1,0 +1,25 @@
+{
+	"replace": false,
+	"values": [
+		"#minecraft:enchantable/weapon",
+		"#minecraft:enchantable/vanishing",
+		"#minecraft:enchantable/trident",
+		"#minecraft:enchantable/sharp_weapon",
+		"#minecraft:enchantable/mining_loot",
+		"#minecraft:enchantable/mining",
+		"#minecraft:enchantable/mace",
+		"#minecraft:enchantable/leg_armor",
+		"#minecraft:enchantable/head_armor",
+		"#minecraft:enchantable/foot_armor",
+		"#minecraft:enchantable/fishing",
+		"#minecraft:enchantable/fire_aspect",
+		"#minecraft:enchantable/equippable",
+		"#minecraft:enchantable/durability",
+		"#minecraft:enchantable/crossbow",
+		"#minecraft:enchantable/chest_armor",
+		"#minecraft:enchantable/bow",
+		"#minecraft:enchantable/armor",
+		"minecraft:book",
+		"minecraft:enchanted_book"
+	]
+}

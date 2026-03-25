@@ -1,0 +1,15 @@
+{
+	"type": "zenchants:enchanting",
+	"category": "tools",
+	"result": {
+		"id": "minecraft:diamond_spear",
+		"components": {
+			"minecraft:enchantments": {
+				"minecraft:lunge": 1
+			}
+		}
+	},
+	"ingredient": "minecraft:feather",
+	"itemCost": "minecraft:lapis_lazuli",
+	"base": "#minecraft:enchantable/lunge"
+}
