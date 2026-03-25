@@ -11,5 +11,5 @@
 	},
 	"ingredient": "minecraft:amethyst_shard",
 	"itemCost": "minecraft:lapis_lazuli",
-	"base": "#minecraft:enchantable/sword"
+	"base": "#minecraft:enchantable/melee_weapon"
 }

@@ -11,5 +11,5 @@
 	},
 	"ingredient": "zenchants:sweeping_blade",
 	"itemCost": "minecraft:lapis_lazuli",
-	"base": "#minecraft:enchantable/sword"
+	"base": "#minecraft:enchantable/melee_weapon"
 }

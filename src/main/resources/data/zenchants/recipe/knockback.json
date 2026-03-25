@@ -11,5 +11,5 @@
 	},
 	"ingredient": "minecraft:breeze_rod",
 	"itemCost": "minecraft:lapis_lazuli",
-	"base": "#minecraft:enchantable/sword"
+	"base": "#minecraft:enchantable/melee_weapon"
 }

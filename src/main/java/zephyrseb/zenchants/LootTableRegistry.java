@@ -20,6 +20,7 @@ public class LootTableRegistry {
     private static final RegistryKey<LootTable> SKELETON_LOOT_TABLE_ID = EntityType.SKELETON.getLootTableKey().isPresent() ? EntityType.SKELETON.getLootTableKey().get() : null;
     private static final RegistryKey<LootTable> STRAY_LOOT_TABLE_ID = EntityType.STRAY.getLootTableKey().isPresent() ? EntityType.STRAY.getLootTableKey().get() : null;
     private static final RegistryKey<LootTable> BOGGED_LOOT_TABLE_ID = EntityType.BOGGED.getLootTableKey().isPresent() ? EntityType.BOGGED.getLootTableKey().get() : null;
+    private static final RegistryKey<LootTable> PARCHED_LOOT_TABLE_ID = EntityType.PARCHED.getLootTableKey().isPresent() ? EntityType.PARCHED.getLootTableKey().get() : null;
     private static final RegistryKey<LootTable> ZOMBIE_LOOT_TABLE_ID = EntityType.ZOMBIE.getLootTableKey().isPresent() ? EntityType.ZOMBIE.getLootTableKey().get() : null;
     private static final RegistryKey<LootTable> HUSK_LOOT_TABLE_ID = EntityType.HUSK.getLootTableKey().isPresent() ? EntityType.HUSK.getLootTableKey().get() : null;
     private static final RegistryKey<LootTable> GUARDIAN_LOOT_TABLE_ID = EntityType.GUARDIAN.getLootTableKey().isPresent() ? EntityType.GUARDIAN.getLootTableKey().get() : null;
@@ -132,7 +133,7 @@ public class LootTableRegistry {
                         .with(ItemEntry.builder(registry.BLADE_FRAGMENT));
                 table.pool(poolBuilder);
             }
-            if (id == SKELETON_LOOT_TABLE_ID || id == STRAY_LOOT_TABLE_ID || id == BOGGED_LOOT_TABLE_ID) {
+            if (id == SKELETON_LOOT_TABLE_ID || id == STRAY_LOOT_TABLE_ID || id == BOGGED_LOOT_TABLE_ID || id == PARCHED_LOOT_TABLE_ID) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceWithEnchantedBonusLootCondition.builder(BuiltinRegistries.createWrapperLookup(), 0.1f, 0.05f))

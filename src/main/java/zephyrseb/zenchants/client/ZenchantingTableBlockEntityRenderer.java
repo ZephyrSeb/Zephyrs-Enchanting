@@ -4,6 +4,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.RenderLayers;
 import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
@@ -49,7 +50,7 @@ public class ZenchantingTableBlockEntityRenderer implements BlockEntityRenderer<
         float g = MathHelper.fractionalPart(state.pageAngle + 0.25F) * 1.6F - 0.3F;
         float h = MathHelper.fractionalPart(state.pageAngle + 0.75F) * 1.6F - 0.3F;
         BookModel.BookModelState bookModelState = new BookModel.BookModelState(state.ticks, MathHelper.clamp(g, 0.0F, 1.0F), MathHelper.clamp(h, 0.0F, 1.0F), state.pageTurningSpeed);
-        queue.submitModel(this.book, bookModelState, matrixStack, BOOK_TEXTURE.getRenderLayer(RenderLayer::getEntitySolid), state.lightmapCoordinates, OverlayTexture.DEFAULT_UV, -1, this.spriteHolder.getSprite(BOOK_TEXTURE), 0, state.crumblingOverlay);
+        queue.submitModel(this.book, bookModelState, matrixStack, BOOK_TEXTURE.getRenderLayer(RenderLayers::entitySolid), state.lightmapCoordinates, OverlayTexture.DEFAULT_UV, -1, this.spriteHolder.getSprite(BOOK_TEXTURE), 0, state.crumblingOverlay);
         matrixStack.pop();
     }
 
